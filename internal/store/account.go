@@ -1,4 +1,4 @@
-package main
+package store
 
 import (
 	"database/sql"
@@ -6,13 +6,9 @@ import (
 	"time"
 )
 
-type IAccounts interface {
-	CreateAccount(*Account) error
-	DeleteAccount(int) error
-	// UpdateAccount(*Account) error
-	GetAccounts() ([]*Account, error)
-	GetAccountByID(int) (*Account, error)
-	// GetAccountByNumber(int) (*Account, error)
+type Test struct {
+	name string
+	tes  int
 }
 
 type Account struct {
@@ -23,6 +19,15 @@ type Account struct {
 	EncryptedPassword string    `json:"-"`
 	Balance           int64     `json:"balance"`
 	CreatedAt         time.Time `json:"createdAt"`
+}
+
+type IAccounts interface {
+	CreateAccount(*Account) error
+	DeleteAccount(int) error
+	// UpdateAccount(*Account) error
+	GetAccounts() ([]*Account, error)
+	GetAccountByID(int) (*Account, error)
+	// GetAccountByNumber(int) (*Account, error)
 }
 
 type AccountStore struct {

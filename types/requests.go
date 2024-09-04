@@ -1,4 +1,4 @@
-package main
+package types
 
 type CreateAccountRequest struct {
 	FirstName string `json:"firstName"`
